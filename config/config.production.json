@@ -1,0 +1,39 @@
+{
+  "env": "production",
+  "http": {
+    "enabled": true,
+    "host": "127.0.0.1",
+    "port": 8080
+  },
+  "db": {
+    "protocol": "mongodb",
+    "host": "127.0.0.1:27017",
+    "user": "token_auth_test",
+    "pass": "token_auth_test",
+    "name": "token_auth_test",
+    "debug": false,
+    "reconnectTries": 1,
+    "version": "v1.0"
+  },
+  "secretKey": "token_auth_test",
+  "secretKeySalt": "mmmsooosalty",
+  "logger": {
+    "sentry": {
+      "enabled": false,
+      "settings": {
+        "patchGlobal": true,
+        "level": "error",
+        "dsn": "there must be sentry dsn",
+        "tags": {
+          "originator": "token-auth-test-service",
+          "env": "production",
+          "version": "v1.0.0"
+        }
+      }
+    },
+    "request": {
+      "enabled": false,
+      "mode": "tiny"
+    }
+  }
+}

@@ -3,16 +3,41 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "start": "node ./node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=production node server.js",
+    "development": "node ./node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node server.js",
+    "local": "node ./node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=local node server.js",
+    "watch": "node ./node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=local nodemon server.js",
+    "eslint-check": "./node_modules/.bin/eslint .",
+    "eslint-fix": "./node_modules/.bin/eslint . --fix",
+    "precommit": "npm run eslint-check && npm test",
+    "prepush": "npm run eslint-check && npm test",
     "pretest": "npm install",
-    "test": "node_modules/mocha/bin/mocha --recursive"
+    "test": "node ./node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=test ./node_modules/mocha/bin/mocha --recursive"
   },
   "dependencies": {
-    "express": "*"
+    "express": "*",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "cross-env": "^5.1.1",
+    "joi": "^13.0.2",
+    "mongoose": "^4.13.5",
+    "morgan": "^1.9.0",
+    "nconf": "^0.9.1",
+    "winston": "^2.4.0",
+    "winston-sentry": "^0.2.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "supertest": "^1.2.0",
-    "supertest-as-promised": "^3.1.0"
+    "supertest-as-promised": "^3.1.0",
+    "eslint": "^4.12.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3"
   }
 }
