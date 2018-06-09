@@ -40,7 +40,7 @@ router.post(
   }),
   AuthController.attempt);
 
-router.delete('/', AuthController.destroy);
+router.delete('/session', AuthController.destroy);
 router.get('/logout', AuthController.destroy);
 
 module.exports = router;
