@@ -19,11 +19,7 @@ const createUser = async (email, password, name) => {
 
 module.exports = async (req, res) => {
   try {
-    const [email, password, name] = [
-      req.body.email,
-      req.body.password,
-      req.body.name
-    ];
+    const {email, password, name} = req.body;
     const user = await createUser(email, hasher.hash(password), name);
     const {_id: token} = await AccessToken.create({
       user: user._id,
